@@ -1,9 +1,12 @@
 #!/bin/bash
 
-# Create ~/bin if it doesnt exist.
-mkdir -p -v ~/bin
-
 FILE=bayer2RGB.py
+
+# Create ~/bin if it doesnt exist.
+if [ ! -d ~/bin ]; then
+	mkdir -p -v ~/bin
+	echo "Make sure to source ~/.profile so it's included in \$PATH."
+fi
 
 # Check if file exits. Add symlink if not.
 if [ -e ~/bin/"$FILE" ]; then
