@@ -1,14 +1,17 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python2
 
 # Debayering tool using opencv.
 # Agreement to pep8 checked using flake8.
-
+from __future__ import print_function
 import os
 import cv2
 import argparse
+import sys
+
 
 parser = argparse.ArgumentParser(
-    description='A python script to debayer a directory of raw .tif images.',
+    description='A python 2.7 script to debayer a directory of raw .tif images. '+
+    			'The debayered directory is created inside the input directory',
     epilog='Created by Nick Goumas')
 parser.add_argument(
     'input_directory',
@@ -41,11 +44,13 @@ def list_dir_tifs(path):
 
 # Print progress bar to terminal.
 def print_percent_complete(complete, total):
-    percent = complete / total * 100
+    percent = float(complete) / float(total) * 100.
     print('\r {}% complete '.format(round(percent, 1)), end='')
+    sys.stdout.flush()
 
 
-output_dir_name = 'debayered'
+
+output_dir_name = 'Debayered'
 
 input_dir_path = os.path.abspath(args.input_directory)
 output_dir_path = os.path.abspath(args.input_directory + output_dir_name)
