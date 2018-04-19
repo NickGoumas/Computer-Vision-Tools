@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python
 
 # Debayering tool using opencv.
 # Agreement to pep8 checked using flake8.
@@ -10,7 +10,7 @@ import sys
 
 
 parser = argparse.ArgumentParser(
-    description='A python 2.7 script to debayer a directory of raw .tif images. '+
+    description='A python script to debayer a directory of raw .tif images. '+
     			'The debayered directory is created inside the input directory',
     epilog='Created by Nick Goumas')
 parser.add_argument(
